@@ -1,0 +1,62 @@
+
+# Gene2drug analysis on differentially expressed genes, drug prioritization. Requires gep2pep Bioconductor package and pathway-based converted Connectivity Map gene expression profiles available from https://dsea.tigem.it/downloads.php
+
+Performs gene2drug analysis using the gep2pep package on up and down genes, then extracts the drugs that are bottom on the former and top on the latter.
+
+
+```{r, eval=F}
+library(openxlsx)
+library(gep2pep)
+
+UPgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 1)$gene
+DNgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 2)$gene
+## This file available from https://dsea.tigem.it/downloads.php
+rp <- openRepository("PEPs_Cmap_MSigDB_v6.1_human")
+
+getpathways <- function(genes) {
+  pws <- gene2pathways(rp, genes, and = F)
+  cat <- sapply(pws, function(i) GSEABase::collectionType(i)@subCategory)
+
+  return(list(
+    BP_pws = pws[which(cat=="BP")],
+    MF_pws = pws[which(cat=="MF")],
+    CC_pws = pws[which(cat=="CC")]
+  ))
+}
+
+UPpws <- getpathways(UPgenes)
+DNpws <- getpathways(DNgenes)
+```
+
+
+Finding drugs
+
+```{r}
+UPsea <- PathSEA(rp, UPpws$MF_pws)
+DNsea <- PathSEA(rp, DNpws$MF_pws)
+```
+Exporting drug prioritization
+
+```{r}
+library(openxlsx)
+library(readxl)
+UPdrugs <- UPsea$PathSEA$c5_MF
+DNdrugs <- DNsea$PathSEA$c5_MF[rownames(UPdrugs),]
+stopifnot(rownames(UPdrugs) == rownames(DNdrugs))
+
+BOTH <- cbind(UPes=UPdrugs[,"ES"], DNes=DNdrugs[,"ES"],
+              UPrank=rank(UPdrugs[,"ES"]), DNrank=rank(-DNdrugs[,"ES"]))
+BOTH <- cbind(BOTH, avgRank=(BOTH[,"UPrank"]+BOTH[,"DNrank"])/2)
+rownames(BOTH) <- rownames(UPdrugs)
+
+library(openxlsx)
+wb <- createWorkbook()
+boldify <- createStyle(textDecoration = "Bold")
+addWorksheet(wb, "gene2drug")
+writeData(wb, 1, data.frame(Drug=rownames(BOTH), BOTH), withFilter = T, headerStyle=boldify)
+saveWorkbook(wb, "gene2drug_OA_UPandDN.xlsx", overwrite = T)
+
+```
+
+
+
