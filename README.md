@@ -9,4 +9,4 @@
 #### [5. Patient-centric approach;](https://ceccarellilab.github.io/MEDIAproject/5_Models_Elastic_RIDGE.html)
 #### [6. Enrichment analyses: volcanos and bubble plots](https://ceccarellilab.github.io/MEDIAproject/6_EnrichmentAnalyses.html)
 
-### The repository includes several intermediate files for reproducibility
+### The repository includes several intermediate files for reproducibility and a Markdown file for the Disease-centric approach
