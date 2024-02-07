@@ -1,6 +1,7 @@
 
-# Gene2drug analysis on differentially expressed genes, drug prioritization. Requires gep2pep Bioconductor package and pathway-based converted Connectivity Map gene expression profiles available from https://dsea.tigem.it/downloads.php
 
+# MARKDOWN FILE FOR DISEASE-CENTRIC APPROACH
+Gene2drug analysis on differentially expressed genes, drug prioritization. Requires gep2pep Bioconductor package and pathway-based converted Connectivity Map gene expression profiles available from https://dsea.tigem.it/downloads.php
 Performs gene2drug analysis using the gep2pep package on up and down genes, then extracts the drugs that are bottom on the former and top on the latter.
 
 
