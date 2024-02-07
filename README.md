@@ -1,4 +1,4 @@
-# MEDIAproject data pre-processing, Consensus signature extraction and patient-centric appraoch
+# MEDIAproject data pre-processing, Consensus signature extraction and patient-centric approach
 ### These codes are related to the paper "Identification of therapeutic targets in osteoarthritis by combining heterogeneous transcriptional datasets,drug-induced expression profiles, and known drug-target interactions"
 
 ### The pre-processing steps, DE analyses, Consensus signature extraction and patient-centric approach are accessible at the following links:
@@ -9,4 +9,7 @@
 #### [5. Patient-centric approach;](https://ceccarellilab.github.io/MEDIAproject/5_Models_Elastic_RIDGE.html)
 #### [6. Enrichment analyses: volcanos and bubble plots](https://ceccarellilab.github.io/MEDIAproject/6_EnrichmentAnalyses.html)
 
-### The repository includes several intermediate files for reproducibility and a Markdown file for the Disease-centric approach
+# MEDIAproject Disease-centric approach
+### The repository includes an R Markdown file for drug prioritization and a Python notebook for the generation of the network
+
+The repository includes several useful files for reproducibility named "Useful_files.zip"
