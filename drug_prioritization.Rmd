@@ -6,8 +6,8 @@
 
 
 ```{r, eval=F}
-library(openxlsx)
-library(gep2pep)
+library(openxlsx)  #version 
+library(gep2pep)   #version 
 
 UPgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 1)$gene
 DNgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 2)$gene
@@ -39,8 +39,6 @@ DNsea <- PathSEA(rp, DNpws$MF_pws)
 Exporting drug prioritization
 
 ```{r}
-library(openxlsx)
-library(readxl)
 UPdrugs <- UPsea$PathSEA$c5_MF
 DNdrugs <- DNsea$PathSEA$c5_MF[rownames(UPdrugs),]
 stopifnot(rownames(UPdrugs) == rownames(DNdrugs))
@@ -50,7 +48,6 @@ BOTH <- cbind(UPes=UPdrugs[,"ES"], DNes=DNdrugs[,"ES"],
 BOTH <- cbind(BOTH, avgRank=(BOTH[,"UPrank"]+BOTH[,"DNrank"])/2)
 rownames(BOTH) <- rownames(UPdrugs)
 
-library(openxlsx)
 wb <- createWorkbook()
 boldify <- createStyle(textDecoration = "Bold")
 addWorksheet(wb, "gene2drug")
