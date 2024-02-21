@@ -6,8 +6,8 @@
 
 
 ```{r, eval=F}
-library(openxlsx)  #version 
-library(gep2pep)   #version 
+library(openxlsx)  #version 4.2.5.2
+library(gep2pep)   #version 3.18
 
 UPgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 1)$gene
 DNgenes <- read.xlsx("up_dw_genes_consensus.xlsx", 2)$gene
