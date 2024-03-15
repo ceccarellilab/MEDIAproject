@@ -1,5 +1,7 @@
 # MEDIAproject data pre-processing, Consensus signature extraction and patient-centric approach
-### These codes are related to the paper "Identification of therapeutic targets in osteoarthritis by combining heterogeneous transcriptional datasets,drug-induced expression profiles, and known drug-target interactions"
+### These codes are related to the paper "Identification of therapeutic targets in osteoarthritis by combining heterogeneous transcriptional datasets,drug-induced expression profiles, and known drug-target interactions" DOI: https://doi.org/10.1186/s12967-024-05006-z
+
+
 
 ### The pre-processing steps, DE analyses, Consensus signature extraction and patient-centric approach are accessible at the following links:
 #### [1. Single-cell Pre-processing and DE analysis;](https://ceccarellilab.github.io/MEDIAproject/1_singleCell_preProc.html)
