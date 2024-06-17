@@ -15,3 +15,5 @@
 ### The repository includes an R Markdown file for drug prioritization and a Python notebook for the generation of the network
 
 The repository includes several useful files for reproducibility named "Useful_files.zip"
+***
+Please note that we noticed an error in the bubble charts published on the original paper. Instead of computing the color code as -log10(p.adjust) we computed natural log (-log(p.adjust)). The mistake slightly affects the color range of the plot but the results didn't change. We apologize for the error and corrected the code in the section "6. Enrichment analyses: volcanos and bubble plots"
