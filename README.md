@@ -16,4 +16,5 @@
 
 The repository includes several useful files for reproducibility named "Useful_files.zip"
 ***
-Please note that we noticed an error in the bubble charts published on the original paper. Instead of computing the color code as -log10(p.adjust) we computed natural log (-log(p.adjust)). The mistake slightly changes the color range of the plot but the results didn't change. We apologize for the error and corrected the code in the section "6. Enrichment analyses: volcanos and bubble plots"
+Please notice that we identified an error in the bubble charts published in the original paper. Instead of computing the color code as -log10(p.adjust), we inadvertently used the natural logarithm (-log(p.adjust)).
+This mistake resulted in a slight adjustment to the color range in the plots, but it did not alter the conclusions drawn from the analysis. The error did not affect the final deduction in any meaningful way, as both methods ultimately lead to the same interpretation of the data. We apologize for any confusion caused and have rectified the code in the "6. Enrichment analyses: volcanoes and bubble plots" section.
